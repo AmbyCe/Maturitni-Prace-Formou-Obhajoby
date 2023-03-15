@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+@keyframes zoom-in-zoom-out {
+	0% {
+		transform: scale(0.75, 0.75);
+		max-height: 100%;
+		max-width: 100%;
+	}
+	50% {
+		transform: scale(1, 1);
+		max-height: 100%;
+		max-width: 100%;
+	}
+	100% {
+		transform: scale(0.75, 0.75);
+		max-height: 100%;
+		max-width: 100%;
+	}
+}
+
+hr {
+	color: #9293b5;
+}
+
+.customBody {
+	background-color: #020527;
+}
+
+.topBackgroundImage {
+	background:linear-gradient(0deg, rgba(2, 5, 39, 0.5), rgba(2, 5, 39, 0.5)), url('../img/background.jpg');
+    background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.zoom-in-out-box {
+	animation: zoom-in-zoom-out 5s ease infinite;
+}
+
+.ipText {
+	background: -webkit-linear-gradient(#05f9ff, #00308e);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.ipBtn {
+	background: -webkit-linear-gradient(#05f9ff, #00308e);
+	-webkit-text-fill-color: transparent;
+	border: 0;
+}
+
+.buttonC {
+	border: 0;
+ }
+
+ .buttonC:hover {
+	background: #2e2e2e;
+	transition: 0.3s;
+ }
+
+ .buttonC-1 {
+	background: linear-gradient(180deg, #3d9adc 0%, #236ea3 100%);
+ }
+
+ .buttonC-2 {
+	background: linear-gradient(180deg, #72c34e 0%, #459423 100%)
+ }
+
+ .buttonC-3 {
+	background: linear-gradient(180deg, #d94a4a 0%, #a01d1d 100%);
+ }
+
+ .buttonC-4 {
+	background: linear-gradient(180deg, #d3af33 0%, #a18217 100%);
+ }
+
+ .buttonC-5 {
+	background: linear-gradient(180deg, #b52fe1 0%, #7e0fa2 100%);
+ }
+
+ .buttonC-6 {
+	background: linear-gradient(180deg, #ffcb7e 0%, #cc964a 100%);
+ }
