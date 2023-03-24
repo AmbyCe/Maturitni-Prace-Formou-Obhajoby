@@ -3,6 +3,13 @@ function copyIp() {
 		'IP zkopírována!', 
 		'Vlož ji ve hře použitím klávesové zkratky <code>Ctrl+V</code>', 
 		'success'
-	)
-	navigator.clipboard.writeText("Play.UniverseMC.cz")
+	);
+
+	var ipServeru = "Play.UniverseMC.cz";
+	try {
+		navigator.clipboard.writeText(ipServeru);
+		console.log('[SYS] IP adresa serveru zkopírována.');
+	} catch (err) {
+		console.error('[SYS] Při kopírování IP adresy nastala chyba: ', err);
+	}
 }

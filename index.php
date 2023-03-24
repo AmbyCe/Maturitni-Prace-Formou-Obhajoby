@@ -1,7 +1,11 @@
 <?php
+	// Pro potřeby autentizace
+	session_start();
+
 	define('FileOpenedThroughRequire', TRUE);
 
 	require('./core/src/secret/headerAndFooter.php');
+	require('./core/src/secret/databaseConnect.php');
 
 	srcBuildHeader("Hlavní strana");
 ?>
@@ -11,7 +15,17 @@
 	<script src="./core/src/script.js"></script>
 </head>
 
-<body class="customBody">
+<noscript>
+	<h1 class="text-center">Nemáš povolený JavaScript na našich stránkách - stránky nebudou fungovat, tak jak by měly.<br />Povol jej a vše bude fungovat tak, jak má ;) <a href="https://www.enable-javascript.com/">www.enable-javascript.com</a></h1>
+</noscript>
+
+<body class="customBody" style="font-family: 'Roboto', sans-serif;">
+
+<?php
+	// Header s informacemi o uživateli a možnost odhlášení
+	require('./pages/dashboard/src/dashboardHeader.php');
+	buildHeader('./pages/dashboard/logout.php', true, './pages/dashboard/dashboard.php');
+?>
 
 	<div class="container">
 
@@ -28,7 +42,7 @@
 		<div class="text-center fs-1 ipText" style="font-family: 'Roboto', sans-serif; font-weight: 900;">
 			Play.UniverseMC.cz
 		</div>
-		<div class="text-center pb-3">
+		<div class="text-center pb-3 d-none d-lg-block">
 			<button type="button" class="btn btn-primary btn-sm" onclick="copyIp()">Zkopírovat IP <i class="bi bi-arrow-right-square"></i></button>
 		</div>
 
@@ -76,77 +90,43 @@
 		<div class="row">
 			<!-- News -->
 			<div class="col-12 col-lg-9 mb-2 ps-2">
-				<div class="row mb-3 ms-1 me-1 me-lg-0">
-					<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0;">
-						<div class="card-body">
-							<h4 class="card-title text-light">Test title</h4>
-							<h6 class="card-subtitle text-muted small" style="color: #6c757d!important;">6. července 1999</h6>
 
-							<hr class="text-light">
+				<?php
+					$sql = "SELECT id, title, timeCreated, shortArticleText, author FROM news ORDER BY id DESC LIMIT 5";
+					$result = mysqli_query($conn, $sql);
 
-							<p class="card-text text-light text-opacity-50 text">Ahoj</p>
-
-							<hr class="text-light">
-
-							<div class="row">
-								<div class="col-6 my-auto">
-									<button type="button" class="btn btn-primary btn-sm text-nowrap"><i class="bi bi-file-text"></i> <span class="d-none d-lg-inline-block">Přečíst c</span><span class="d-inline-block d-lg-none">C</span>elý článek</button>
-								</div>
-								<div class="col-6 text-end text-light text-opacity-50 my-auto">
-									<img src="http://cravatar.eu/avatar/_AmbY_/24.png" class="rounded-2 w-auto h-auto me-1"> <span class="d-none d-lg-inline-block">_AmbY_</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row mb-3 ms-1 me-1 me-lg-0">
-					<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0;">
-						<div class="card-body">
-							<h4 class="card-title text-light">Test title</h4>
-							<h6 class="card-subtitle text-muted small" style="color: #6c757d!important;">6. července 1999</h6>
-
-							<hr class="text-light">
-
-							<p class="card-text text-light text-opacity-50 text">Ahoj</p>
-
-							<hr class="text-light">
-
-							<div class="row">
-								<div class="col-6 my-auto">
-									<button type="button" class="btn btn-primary btn-sm text-nowrap"><i class="bi bi-file-text"></i> <span class="d-none d-lg-inline-block">Přečíst c</span><span class="d-inline-block d-lg-none">C</span>elý článek</button>
-								</div>
-								<div class="col-6 text-end text-light text-opacity-50 my-auto">
-									<img src="http://cravatar.eu/avatar/_AmbY_/24.png" class="rounded-2 w-auto h-auto me-1"> <span class="d-none d-lg-inline-block">_AmbY_</span>
+					if (mysqli_num_rows($result) >= 1) {
+						while ($row = mysqli_fetch_assoc($result)) {
+							echo('
+							<div class="row mb-3 ms-1 me-1 me-lg-0">
+								<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0;">
+									<div class="card-body">
+										<h4 class="card-title text-light">' . $row['title'] . '</h4>
+										<h6 class="card-subtitle text-muted small" style="color: #6c757d!important;">' . $row['timeCreated'] . '</h6>
+			
+										<hr class="text-light">
+			
+										<div style="max-width: 100%;">
+											<p class="card-text text-light text-opacity-50 text text-truncate">' . $row['shortArticleText'] . '</p>
+										</div>
+			
+										<hr class="text-light">
+			
+										<div class="row">
+											<div class="col-6 my-auto">
+												<a href="./pages/fullArticle.php?id=' . $row['id'] . '" type="button" class="btn btn-primary btn-sm text-nowrap"><i class="bi bi-file-text"></i> <span class="d-none d-lg-inline-block">Přečíst c</span><span class="d-inline-block d-lg-none">C</span>elý článek</a>
+											</div>
+											<div class="col-6 text-end text-light text-opacity-50 my-auto">
+												<img src="http://cravatar.eu/avatar/' . $row['author'] . '/24.png" class="rounded-2 w-auto h-auto me-1"> <span class="d-none d-lg-inline-block">' . $row['author'] . '</span>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row ms-1 me-1 me-lg-0">
-					<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0;">
-						<div class="card-body">
-							<h4 class="card-title text-light">Test title</h4>
-							<h6 class="card-subtitle text-muted small" style="color: #6c757d!important;">6. července 1999</h6>
-
-							<hr class="text-light">
-
-							<p class="card-text text-light text-opacity-50 text">Ahoj</p>
-
-							<hr class="text-light">
-
-							<div class="row">
-								<div class="col-6 my-auto">
-									<button type="button" class="btn btn-primary btn-sm text-nowrap"><i class="bi bi-file-text"></i> <span class="d-none d-lg-inline-block">Přečíst c</span><span class="d-inline-block d-lg-none">C</span>elý článek</button>
-								</div>
-								<div class="col-6 text-end text-light text-opacity-50 my-auto">
-									<img src="http://cravatar.eu/avatar/_AmbY_/24.png" class="rounded-2 w-auto h-auto me-1"> <span class="d-none d-lg-inline-block">_AmbY_</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+							');
+						}
+					}
+				?>
 
 			</div>
 

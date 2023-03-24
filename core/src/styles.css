@@ -38,6 +38,8 @@ hr {
 
 .ipText {
 	background: -webkit-linear-gradient(#05f9ff, #00308e);
+	background-clip: text;
+	background-clip: inherit;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -55,6 +57,15 @@ hr {
  .buttonC:hover {
 	background: #2e2e2e;
 	transition: 0.3s;
+ }
+
+ .buttonC-0 {
+	background: #808080;
+ }
+
+ .buttonC-0:hover {
+	background: #808080 !important;
+	cursor: default !important;
  }
 
  .buttonC-1 {
