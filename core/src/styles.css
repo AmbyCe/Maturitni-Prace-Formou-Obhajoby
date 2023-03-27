@@ -92,12 +92,16 @@ hr {
 	background: linear-gradient(180deg, #f2c94c 0%, #f2994a 100%);
  }
 
-/* Původní buttonC-1 */
  .buttonC-7 {
+	background: linear-gradient(180deg, #414345 0%, #232526 100%);
+ }
+
+/* Původní buttonC-1 */
+ .buttonC-8 {
 	background: linear-gradient(180deg, #3d9adc 0%, #236ea3 100%);
  }
 
 /* Původní buttonC-4 */
- .buttonC-8 {
+ .buttonC-9 {
 	background: linear-gradient(180deg, #d3af33 0%, #a18217 100%);
  }

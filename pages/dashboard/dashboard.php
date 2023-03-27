@@ -63,26 +63,36 @@
 				<ul class="text-secondary">
 					<li><small><strong>Hodnost:</strong> <span style="color: <?php echo(permissionToRankcolor($_SESSION['permissions'])) ?>"><?php echo(permissionToRankname($_SESSION['permissions'])) ?></span></small></li>
 					<li><small><strong>Hráčské UUID:</strong> <?php echo(username_to_uuid(validate($_SESSION['username']))) ?></small></li>
-				</ul><br class="d-none d-lg-block" />
-				
-				<div class="text-center text-lg-start pb-3 pb-lg-0">
-					<span class="bottom-0 mb-4 position-lg-absolute"><small><i class="bi bi-info-circle text-info"></i> Na této stránce najdeš rozcestník ke snadné orientaci.</small></span>
-				</div>
+				</ul>
 			</div>
 		</div>
 	</div>
+
 	<hr>
 
-	<div class="row text-center">
-		<div class="col-12 col-lg-4">
+	<!-- Administrace -->
+	<div class="text-light" style="font-weight: 500;">
+		<span class="fs-3"><i class="bi bi-person-lock"></i> Administrace</span>
+	</div>
+
+	<div class="row text-center pt-4 pb-4" style="background-color: #0d1129;">
+		<div class="col-12 col-lg-6">
 			<a href="./pages/writeArticle.php" class="btn btn-primary buttonC buttonC-2"><i class="bi bi-pencil"></i> Napsat nový článek</a>
 		</div>
-		<div class="col-12 col-lg-4">
+		<div class="col-12 col-lg-6">
 			<a href="./pages/administerArticles.php" class="btn btn-primary buttonC buttonC-4"><i class="bi bi-pencil-square"></i> Správa článků</a>
 		</div>
-		<div class="col-12 col-lg-4">
-			Ahoj3
-		</div>
+	</div>
+
+	<hr>
+
+	<!-- Soukromé zprávy -->
+	<div class="text-light" style="font-weight: 500;">
+		<span class="fs-3"><i class="bi bi-envelope"></i> Soukromé zprávy</span>
+	</div>
+
+	<div class="text-center pt-4 pb-4 d-lg-flex flex-lg-row-reverse" style="background-color: #0d1129;">
+		<a href="./pages/writeArticle.php" class="btn btn-primary buttonC buttonC-2 me-lg-4"><i class="bi bi-pencil"></i> Nová soukromá zpráva</a>
 	</div>
 
 	<hr>

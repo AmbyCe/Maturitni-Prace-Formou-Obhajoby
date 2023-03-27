@@ -57,19 +57,19 @@
 			<div class="row">
 				<div class="col-6">
 					<a class="btn btn-lg w-100 text-light buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
-						<span style="opacity: 80%;">
+						<span style="opacity: 90%;">
 							Uživatelský panel
 						</span>
 					</a>
 
 					<a class="btn btn-lg w-100 text-light buttonC buttonC-6 mt-2" role="button" href="./pages/navody/">
-						<span style="opacity: 80%;">
+						<span style="opacity: 90%;">
 							Nápověda - wiki
 						</span>
 					</a>
 
 					<a class="btn btn-lg w-100 text-light buttonC buttonC-3 mt-2" role="button" href="">
-						<span style="opacity: 80%;">
+						<span style="opacity: 90%;">
 							Nahlásit hráče
 						</span>
 					</a>
@@ -77,19 +77,19 @@
 
 				<div class="col-6">
 					<a class="btn btn-lg w-100 text-light buttonC buttonC-2" role="button" href="">
-						<span style="opacity: 80%;">
+						<span style="opacity: 90%;">
 							Žádost o unban
 						</span>
 					</a>
 
 					<a class="btn btn-lg w-100 text-light buttonC buttonC-5 mt-2" role="button" href="">
-						<span style="opacity: 80%;">
+						<span style="opacity: 90%;">
 							Žádost o práva
 						</span>
 					</a>
 
 					<a class="btn btn-lg w-100 text-light buttonC buttonC-4 mt-2" role="button" href="">
-						<span style="opacity: 80%;">
+						<span style="opacity: 90%;">
 							Aktivovat VIP
 						</span>
 					</a>

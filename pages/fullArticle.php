@@ -83,7 +83,7 @@
 				<div class="row">
 					<div class="col-6 my-auto"></div>
 					<div class="col-6 text-end text-light text-opacity-50 my-auto">
-						<img src="http://cravatar.eu/avatar/<?php echo($articleAuthor) ?>/24.png" class="rounded-2 w-auto h-auto me-1"> <span class="d-none d-lg-inline-block"><?php echo($articleAuthor) ?></span>
+						<img src="http://cravatar.eu/avatar/<?php echo($articleAuthor) ?>/24.png" class="rounded-2 w-auto h-auto me-1"> <?php echo($articleAuthor) ?>
 					</div>
 				</div>
 			</div>
