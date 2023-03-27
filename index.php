@@ -92,7 +92,7 @@
 			<div class="col-12 col-lg-9 mb-2 ps-2">
 
 				<?php
-					$sql = "SELECT id, title, timeCreated, shortArticleText, author FROM news ORDER BY id DESC LIMIT 5";
+					$sql = "SELECT n.id as id, n.title as title, n.timeCreated as timeCreated, n.shortArticleText as shortArticleText, u.username as author FROM news n, users u WHERE u.id = n.author ORDER BY id DESC LIMIT 10";
 					$result = mysqli_query($conn, $sql);
 
 					if (mysqli_num_rows($result) >= 1) {

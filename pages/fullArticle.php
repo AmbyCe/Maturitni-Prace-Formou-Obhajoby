@@ -27,7 +27,7 @@
 	// Pokud je v GETu validní článek + načtení informací o něm
 	if (isset($_GET['id'])) {
 		$articleId = intval($_GET['id']);
-		$sql = "SELECT id, title, timeCreated, articleText, author FROM news WHERE id = '$articleId' LIMIT 1";
+		$sql = "SELECT n.id as id, n.title as title, n.timeCreated as timeCreated, n.articleText as articleText, u.username as author FROM news n, users u WHERE u.id = n.author AND n.id = '$articleId' LIMIT 1";
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) == 1) {

@@ -64,10 +64,10 @@ function postError(text) {
 	)
 }
 
-function postSuccess() {
+function postSuccess(postTitle) {
 	Swal.fire({
-		title: "Článek přidán!",
-		text: "Nyní ho najdeš na hlavní stránce",
+		title: "Úspěch!",
+		html: "Článek s názvem <b>" + postTitle + "</b> byl přidán",
 		icon: "success",
 		confirmButtonColor: "#198754",
 		confirmButtonText: "Otevřít hlavní stranu"
@@ -99,12 +99,12 @@ function postSuccess() {
 				$title = validate($_POST['title']);
 				$shortText = $_POST['shortText'];
 				$text = $_POST['text'];
-				$author = validate($_SESSION['username']);
+				$author = $_SESSION['id'];
 
 				$sql = "INSERT INTO news (title, shortArticleText, articleText, author) VALUES ('$title', '$shortText', '$text', '$author')";
 				$result = mysqli_query($conn, $sql);
 				unset($_POST['submit']);
-				echo('<script>postSuccess()</script>');
+				echo('<script>postSuccess("'. $title . '")</script>');
 			} else {
 				echo('<script>postError("Předmět a/nebo obsah článku nebyl zadán");</script>');
 			}

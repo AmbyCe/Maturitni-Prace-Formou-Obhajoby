@@ -132,7 +132,7 @@ function postRemoveSuccess() {
 	<hr>
 
 	<?php
-		$sql = "SELECT id, title, timeCreated, author FROM news ORDER BY id DESC";
+		$sql =  "SELECT n.id as id, n.title as title, n.timeCreated as timeCreated, u.username as author FROM news n, users u WHERE u.id = n.author ORDER BY id DESC";
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) >= 1) {
