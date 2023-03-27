@@ -69,7 +69,7 @@ hr {
  }
 
  .buttonC-1 {
-	background: linear-gradient(180deg, #3d9adc 0%, #236ea3 100%);
+	background: linear-gradient(180deg, #1488cc 0%, #2b32b2 100%);
  }
 
  .buttonC-2 {
@@ -81,7 +81,7 @@ hr {
  }
 
  .buttonC-4 {
-	background: linear-gradient(180deg, #d3af33 0%, #a18217 100%);
+	background: linear-gradient(180deg, #dfa104 0%, #f7971e 100%);
  }
 
  .buttonC-5 {
@@ -89,5 +89,15 @@ hr {
  }
 
  .buttonC-6 {
-	background: linear-gradient(180deg, #ffcb7e 0%, #cc964a 100%);
+	background: linear-gradient(180deg, #f2c94c 0%, #f2994a 100%);
+ }
+
+/* Původní buttonC-1 */
+ .buttonC-7 {
+	background: linear-gradient(180deg, #3d9adc 0%, #236ea3 100%);
+ }
+
+/* Původní buttonC-4 */
+ .buttonC-8 {
+	background: linear-gradient(180deg, #d3af33 0%, #a18217 100%);
  }

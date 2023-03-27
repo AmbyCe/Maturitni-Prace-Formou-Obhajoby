@@ -56,30 +56,42 @@
 		<div class="d-block d-lg-none">
 			<div class="row">
 				<div class="col-6">
-					<a class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
-						Uživatelský panel
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
+						<span style="opacity: 80%;">
+							Uživatelský panel
+						</span>
 					</a>
 
-					<a class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-6 mt-2" role="button" href="./pages/navody/">
-						Nápověda - wiki
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-6 mt-2" role="button" href="./pages/navody/">
+						<span style="opacity: 80%;">
+							Nápověda - wiki
+						</span>
 					</a>
 
-					<a class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-3 mt-2" role="button" href="">
-						Nahlásit hráče
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-3 mt-2" role="button" href="">
+						<span style="opacity: 80%;">
+							Nahlásit hráče
+						</span>
 					</a>
 				</div>
 
 				<div class="col-6">
-					<a class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-2" role="button" href="">
-						Žádost o unban
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-2" role="button" href="">
+						<span style="opacity: 80%;">
+							Žádost o unban
+						</span>
 					</a>
 
-					<a class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-5 mt-2" role="button" href="">
-						Žádost o práva
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-5 mt-2" role="button" href="">
+						<span style="opacity: 80%;">
+							Žádost o práva
+						</span>
 					</a>
 
-					<a class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-4 mt-2" role="button" href="">
-						Aktivovat VIP
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-4 mt-2" role="button" href="">
+						<span style="opacity: 80%;">
+							Aktivovat VIP
+						</span>
 					</a>
 				</div>
 			</div>
@@ -132,28 +144,40 @@
 
 			<!-- Right panel (only on desktop) -->
 			<div class="d-none d-lg-block col-lg-3">
-				<a class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
-					<i class="bi bi-speedometer2 d-none d-lg-inline-block"></i> Uživatelský panel
+				<a class="btn btn-lg w-100 text-light buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
+					<span style="opacity: 80%;">
+						<i class="bi bi-speedometer2 d-none d-lg-inline-block"></i> Uživatelský panel
+					</span>
 				</a>
 
-				<a class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-6 mt-2" role="button" href="./pages/navody/">
-					<i class="bi bi-body-text d-none d-lg-inline-block"></i> Nápověda - wiki
+				<a class="btn btn-lg w-100 text-light buttonC buttonC-6 mt-2" role="button" href="./pages/navody/">
+					<span style="opacity: 80%;">
+						<i class="bi bi-body-text d-none d-lg-inline-block"></i> Nápověda - wiki
+					</span>
 				</a>
 
-				<button type="button" class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-3 mt-lg-2">
-					<i class="bi bi-flag d-none d-lg-inline-block"></i> Nahlásit hráče
+				<button type="button" class="btn btn-lg w-100 text-light buttonC buttonC-3 mt-lg-2">
+					<span style="opacity: 80%;">
+						<i class="bi bi-flag d-none d-lg-inline-block"></i> Nahlásit hráče
+					</span>
 				</button>
 
-				<button type="button" class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-2 mt-2">
-					<i class="bi bi-x-circle d-none d-lg-inline-block"></i> Žádost o unban
+				<button type="button" class="btn btn-lg w-100 text-light buttonC buttonC-2 mt-2">
+					<span style="opacity: 80%;">
+						<i class="bi bi-x-circle d-none d-lg-inline-block"></i> Žádost o unban
+					</span>
 				</button>
 
-				<button type="button" class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-5 mt-2">
-					<i class="bi bi-person-check d-none d-lg-inline-block"></i> Žádost o práva
+				<button type="button" class="btn btn-lg w-100 text-light buttonC buttonC-5 mt-2">
+					<span style="opacity: 80%;">
+						<i class="bi bi-person-check d-none d-lg-inline-block"></i> Žádost o práva
+					</span>
 				</button>
 
-				<button type="button" class="btn btn-lg w-100 text-light text-opacity-75 buttonC buttonC-4 mt-2">
-					<i class="bi bi-cart4 d-none d-lg-inline-block"></i> Aktivovat VIP
+				<button type="button" class="btn btn-lg w-100 text-light buttonC buttonC-4 mt-2">
+					<span style="opacity: 80%;">
+						<i class="bi bi-cart4 d-none d-lg-inline-block"></i> Aktivovat VIP
+					</span>
 				</button>
 			</div>
 
