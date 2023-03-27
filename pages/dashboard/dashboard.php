@@ -63,6 +63,7 @@
 				<ul class="text-secondary">
 					<li><small><strong>Hodnost:</strong> <span style="color: <?php echo(permissionToRankcolor($_SESSION['permissions'])) ?>"><?php echo(permissionToRankname($_SESSION['permissions'])) ?></span></small></li>
 					<li><small><strong>Hráčské UUID:</strong> <?php echo(username_to_uuid(validate($_SESSION['username']))) ?></small></li>
+					<li><small><strong>ID uživatele:</strong> #<?php echo($_SESSION['id']) ?></small></li>
 				</ul>
 			</div>
 		</div>
@@ -92,7 +93,7 @@
 	</div>
 
 	<div class="text-center pt-4 pb-4 d-lg-flex flex-lg-row-reverse" style="background-color: #0d1129;">
-		<a href="./pages/writeArticle.php" class="btn btn-primary buttonC buttonC-2 me-lg-4"><i class="bi bi-pencil"></i> Nová soukromá zpráva</a>
+		<a href="" class="btn btn-primary buttonC buttonC-2 me-lg-4"><i class="bi bi-pencil"></i> Nová soukromá zpráva</a>
 	</div>
 
 	<hr>
