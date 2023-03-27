@@ -58,7 +58,7 @@
 <script>
 function postError(text) {
 	Swal.fire(
-		"Chyba!", 
+		"Chyba!",
 		text, 
 		"error"
 	)
@@ -101,10 +101,23 @@ function postSuccess(postTitle) {
 				$text = $_POST['text'];
 				$author = $_SESSION['id'];
 
-				$sql = "INSERT INTO news (title, shortArticleText, articleText, author) VALUES ('$title', '$shortText', '$text', '$author')";
-				$result = mysqli_query($conn, $sql);
-				unset($_POST['submit']);
-				echo('<script>postSuccess("'. $title . '")</script>');
+				if (strlen($title) > 40) {
+					echo('<script>postError("Nadpis je příliš dlouhý - má: <strong>' . strlen($title) . ' znaků</strong>");</script>');
+				} else {
+					if (strlen($shortText) > 1500) {
+						echo('<script>postError("Krátký náhled je příliš dlouhý - má: <strong>' . strlen($shortText) . ' znaků</strong>");</script>');
+					} else {
+						if (strlen($text) > 10000) {
+							echo('<script>postError("Obsah článku je příliš dlouhý - má: <strong>' . strlen($text) . ' znaků</strong>");</script>');
+						} else {
+							$sql = "INSERT INTO news (title, shortArticleText, articleText, author) VALUES ('$title', '$shortText', '$text', '$author')";
+							$result = mysqli_query($conn, $sql);
+							unset($_POST['submit']);
+							echo('<script>postSuccess("'. $title . '")</script>');
+						}
+					}
+				}
+
 			} else {
 				echo('<script>postError("Předmět a/nebo obsah článku nebyl zadán");</script>');
 			}
@@ -135,9 +148,9 @@ function postSuccess(postTitle) {
 	<hr>
 
 	<div class="mb-2">
-		<small class="text-light"><i class="bi bi-info-circle text-info"></i> V nadpisu jsou povoleny jen alfanumerické znaky - všechny ostatní se zobrazí přesně tak, jak jste je napsali. Žádný HTML, BBCODE a jiné nebude zpracováno tak, jako v kódu.</small><br />
-		<small class="text-light"><i class="bi bi-info-circle text-info"></i> Krátký náhled článku se zobrazuje na hlavní stránce - limitujte jej proto na jeden odstavec.</small><br />
-		<small class="text-light"><i class="bi bi-exclamation-triangle text-danger"></i> Všechen text v obsahu nakonec nastavte na bílou barvu - jinak bude nečitelný na hlavní stránce.</small>
+		<small class="text-light"><i class="bi bi-info-circle text-info"></i> V nadpisu nelze použít HTML, BBCODE a jiné. Je taktéž limitován na <strong>40 znaků</strong>.</small><br />
+		<small class="text-light"><i class="bi bi-info-circle text-info"></i> Krátký náhled článku se zobrazuje na hlavní stránce. Je limitován na <strong>1 500 znaků</strong>.</small><br />
+		<small class="text-light"><i class="bi bi-info-circle text-info"></i> Obsah článku <em>(druhý editor)</em> může mít maximálně <strong>10 000 znaků</strong>.</small>
 	</div>
 
 	<hr>
@@ -146,16 +159,16 @@ function postSuccess(postTitle) {
 <div class="container">
 	<form method="POST">
 		<div class="row mb-3">
-			<label for="enterTitle" class="col-sm-2 col-form-label text-light">Nadpis článku:</label>
-			<div class="col-sm-10">
+			<label for="enterTitle" class="col-lg-2 col-form-label text-light">Nadpis článku:</label>
+			<div class="col-lg-10">
 				<input type="text" name="title" class="form-control text-light" style="background-color: #222f3e; border: 0;" id="enterTitle">
 			</div>
 		</div>
 
-		<label for="editorShort" class="col-sm-2 col-form-label text-light">Krátký náhled článku:</label>
+		<label for="editorShort" class="text-light">Krátký náhled článku <small>(zobrazovaný na hlavní stránce)</small>:</label>
 		<textarea name="shortText" id="editorShort"></textarea>
 
-		<label for="editor" class="col-sm-2 col-form-label text-light mt-3">Celý článek:</label>
+		<label for="editor" class="text-light mt-3">Obsah článku <small>(zobrazovaný v detailu článku)</small>:</label>
 		<textarea name="text" id="editor"></textarea>
 
 		<div class="mt-3 text-end">
