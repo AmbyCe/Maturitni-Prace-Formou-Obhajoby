@@ -167,6 +167,11 @@
 				}
 			?>
 
+			<!-- Zobrazit všechny přijaté zprávy -->
+			<div class="text-center mt-2">
+				<a href="./pages/viewAllPms.php?show=1" class="btn btn-sm btn-primary buttonC buttonC-5 me-lg-4"><i class="bi bi-list-columns-reverse"></i> Zobrazit všechny přijaté zprávy</a>
+			</div>
+
 			<hr>
 
 			<!-- Zprávy vytvořené uživatelem -->
@@ -228,6 +233,11 @@
 					</div>');
 				}
 			?>
+
+			<!-- Zobrazit všechny odeslané zprávy -->
+			<div class="text-center mt-2">
+				<a href="./pages/viewAllPms.php?show=2" class="btn btn-sm btn-primary buttonC buttonC-5 me-lg-4"><i class="bi bi-list-columns-reverse"></i> Zobrazit všechny odeslané zprávy</a>
+			</div>
 		</div>
 
 		<div class="row ps-4 pe-4">

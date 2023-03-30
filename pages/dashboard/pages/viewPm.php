@@ -101,7 +101,7 @@
 
 		<hr>
 
-		<!-- Článek -->
+		<!-- Zpráva -->
 		<div class="card mt-3" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
 			<div class="card-body">
 				<h4 class="card-title text-light"><?php echo($msgTitle) ?></h4>
