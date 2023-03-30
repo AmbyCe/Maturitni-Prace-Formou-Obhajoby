@@ -109,7 +109,7 @@
 
 			<!-- Zprávy zaslané uživatli -->
 			<div class="text-light" style="font-weight: 500;">
-				<span class="fs-5"><i class="bi bi-envelope-at"></i> Tobě zaslané zprávy</span>
+				<span class="fs-5"><i class="bi bi-envelope-at"></i> Přijaté zprávy</span>
 			</div>
 
 			<?php
@@ -155,6 +155,15 @@
 						</div>
 						');
 					}
+				} else {
+					echo('
+					<div class="row mt-2 mt-lg-1">
+							<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
+								<div class="pt-2 pb-2 text-center">
+									<i class="bi bi-envelope-x"></i> Nemáš žádné přijaté zprávy..
+								</div>
+							</div>
+					</div>');
 				}
 			?>
 
@@ -162,7 +171,7 @@
 
 			<!-- Zprávy vytvořené uživatelem -->
 			<div class="text-light" style="font-weight: 500;">
-				<span class="fs-5"><i class="bi bi-envelope-open"></i> Tebou vytvořené zprávy</span>
+				<span class="fs-5"><i class="bi bi-envelope-open"></i> Odeslané zprávy</span>
 			</div>
 
 			<?php
@@ -208,6 +217,15 @@
 						</div>
 						');
 					}
+				} else {
+					echo('
+					<div class="row mt-2 mt-lg-1">
+							<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
+								<div class="pt-2 pb-2 text-center">
+									<i class="bi bi-envelope-x"></i> Nemáš žádné odeslané zprávy..
+								</div>
+							</div>
+					</div>');
 				}
 			?>
 		</div>
