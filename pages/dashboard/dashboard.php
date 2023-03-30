@@ -53,19 +53,21 @@
 	<hr>
 
 	<!-- Informace o uživateli -->
-	<div class="row position-lg-relative">
-		<div class="col-12 col-lg-4 text-center" style="background-color: #0d1129;">
-			<img class="pt-4 pb-4" src="https://visage.surgeplay.com/full/160/<?php echo(username_to_uuid(validate($_SESSION['username']))) ?>">
-		</div>
-		<div class="col-12 col-lg-8 text-light" style="background-color: #0d1129;">
-			<div class="pt-4">
-				<span class="fs-4" style="font-weight: 500;">Vítej <?php echo(validate($_SESSION['username'])) ?></span><br />
+	<div class="position-lg-relative" style="background-color: #0d1129;">
+		<div class="row">
+			<div class="col-12 col-lg-4 text-center">
+				<img class="pt-4 pb-4" src="https://visage.surgeplay.com/full/160/<?php echo(username_to_uuid(validate($_SESSION['username']))) ?>">
+			</div>
+			<div class="col-12 col-lg-8 text-light">
+				<div class="pt-4">
+					<span class="fs-4" style="font-weight: 500;">Vítej <?php echo(validate($_SESSION['username'])) ?></span><br />
 
-				<ul class="text-secondary">
-					<li><small><strong>Hodnost:</strong> <span style="color: <?php echo(permissionToRankcolor($_SESSION['permissions'])) ?>"><?php echo(permissionToRankname($_SESSION['permissions'])) ?></span></small></li>
-					<li><small><strong>Hráčské UUID:</strong> <?php echo(username_to_uuid(validate($_SESSION['username']))) ?></small></li>
-					<li><small><strong>ID uživatele:</strong> #<?php echo($_SESSION['id']) ?></small></li>
-				</ul>
+					<ul class="text-secondary">
+						<li><small><strong>Hodnost:</strong> <span style="color: <?php echo(permissionToRankcolor($_SESSION['permissions'])) ?>"><?php echo(permissionToRankname($_SESSION['permissions'])) ?></span></small></li>
+						<li><small><strong>Hráčské UUID:</strong> <?php echo(username_to_uuid(validate($_SESSION['username']))) ?></small></li>
+						<li><small><strong>ID uživatele:</strong> #<?php echo($_SESSION['id']) ?></small></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -77,12 +79,14 @@
 		<span class="fs-3"><i class="bi bi-person-lock"></i> Administrace</span>
 	</div>
 
-	<div class="row text-center pt-4 pb-4" style="background-color: #0d1129;">
-		<div class="col-12 col-lg-6">
-			<a href="./pages/writeArticle.php" class="btn btn-primary buttonC buttonC-2"><i class="bi bi-pencil"></i> Napsat nový článek</a>
-		</div>
-		<div class="col-12 col-lg-6">
-			<a href="./pages/administerArticles.php" class="btn btn-primary buttonC buttonC-4"><i class="bi bi-pencil-square"></i> Správa článků</a>
+	<div class="text-center pt-4 pb-4" style="background-color: #0d1129;">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<a href="./pages/writeArticle.php" class="btn btn-primary buttonC buttonC-2"><i class="bi bi-pencil"></i> Napsat nový článek</a>
+			</div>
+			<div class="col-12 col-lg-6">
+				<a href="./pages/administerArticles.php" class="btn btn-primary buttonC buttonC-4"><i class="bi bi-pencil-square"></i> Správa článků</a>
+			</div>
 		</div>
 	</div>
 
@@ -100,7 +104,7 @@
 
 		<?php
 			$userId = $_SESSION['id'];
-			$sql = "SELECT m.msgId as msgId, m.title as title, m.timeCreated as timeCreated, u.username as author, m.responseToMsgId as responseToMsgId, m.msgReaded as msgReaded FROM privatemessages m, users u WHERE u.id = m.fromUser AND m.toUser = '$userId' ORDER BY msgId DESC LIMIT 3";
+			$sql = "SELECT m.msgId as msgId, m.title as title, m.timeCreated as timeCreated, u.username as author, m.msgReaded as msgReaded FROM privatemessages m, users u WHERE u.id = m.fromUser AND m.toUser = '$userId' ORDER BY msgId DESC LIMIT 3";
 			$result = mysqli_query($conn, $sql);
 
 			if (mysqli_num_rows($result) >= 1) {
@@ -113,23 +117,14 @@
 						$readIcon = '<span class="badge text-bg-danger"><i class="bi bi-x-circle"></i> Nepřečteno</span>';
 					}
 
-					if ($row['responseToMsgId'] != NULL) {
-						$msgIcon = '<i class="bi bi-reply"></i>';
-					} else {
-						$msgIcon = '<i class="bi bi-envelope"></i>';
-					}
-
 					echo('
 					<div class="row mt-2 mt-lg-1 ms-4 me-4">
 						<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
 							<div class="row pt-2 pb-2">
-								<div class="col-6 col-lg-1 text-center text-truncate">
+								<div class="col-12 col-lg-2 text-center text-lg-start text-truncate">
 									' . $readIcon . '
 								</div>
-								<div class="col-6 col-lg-1 text-center">
-									' . $msgIcon . '
-								</div>
-								<div class="col-12 col-lg-2 text-center text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
+								<div class="col-12 col-lg-2 text-center text-lg-start text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
 									<em>' . $row['timeCreated'] . '</em>
 								</div>
 								<div class="col-12 col-lg-4 text-center text-lg-start text-truncate pt-2 pt-lg-0">
