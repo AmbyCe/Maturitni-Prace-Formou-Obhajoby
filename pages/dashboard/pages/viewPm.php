@@ -102,7 +102,7 @@
 		<hr>
 
 		<!-- Zpráva -->
-		<div class="card mt-3" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
+		<div class="card mt-3" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white; overflow-x: auto;">
 			<div class="card-body">
 				<h4 class="card-title text-light"><?php echo($msgTitle) ?></h4>
 				<h6 class="card-subtitle text-muted small" style="color: #6c757d!important;"><?php echo($msgCreatedAt) ?></h6>

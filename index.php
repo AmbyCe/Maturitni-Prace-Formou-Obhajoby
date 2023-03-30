@@ -111,7 +111,7 @@
 						while ($row = mysqli_fetch_assoc($result)) {
 							echo('
 							<div class="row mb-3 ms-1 me-1 me-lg-0">
-								<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
+								<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white; overflow-x: auto;">
 									<div class="card-body">
 										<h4 class="card-title text-light">' . $row['title'] . '</h4>
 										<h6 class="card-subtitle text-muted small" style="color: #6c757d!important;">' . $row['timeCreated'] . '</h6>
