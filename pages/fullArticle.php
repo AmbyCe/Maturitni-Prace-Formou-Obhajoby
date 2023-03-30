@@ -7,7 +7,7 @@
 	require('../core/src/secret/headerAndFooter.php');
 	require('../core/src/secret/databaseConnect.php');
 
-	srcBuildHeader("Hlavní strana");
+	srcBuildHeader("Detail článku");
 ?>
 
 	<!-- Main page style -->

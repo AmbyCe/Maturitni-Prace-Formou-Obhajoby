@@ -78,7 +78,7 @@ function postSuccess(postTitle) {
 	if (isset($_POST['submit'])) {
 		if ($_POST['title'] != "" && $_POST['text'] != "") {
 			$author = $_SESSION['id'];
-			$reciever = $_POST['reciever'];
+			$reciever = validate($_POST['reciever']);
 			$title = validate($_POST['title']);
 			$text = $_POST['text'];
 
@@ -88,10 +88,14 @@ function postSuccess(postTitle) {
 				if (strlen($text) > 7500) {
 					echo('<script>postError("Obsah zprávy je příliš dlouhý - má: <strong>' . strlen($text) . ' znaků</strong>");</script>');
 				} else {
-					$sql = "INSERT INTO privatemessages (fromUser, toUser, title, content) VALUES ('$author', '$reciever', '$title', '$text')";
-					$result = mysqli_query($conn, $sql);
-					unset($_POST['submit']);
-					echo('<script>postSuccess("'. $title . '")</script>');
+					if ($reciever == $author) {
+						echo('<script>postError("Nemůžeš napsat zprávu sám sobě");</script>');
+					} else {
+						$sql = "INSERT INTO privatemessages (fromUser, toUser, title, content) VALUES ('$author', '$reciever', '$title', '$text')";
+						$result = mysqli_query($conn, $sql);
+						unset($_POST['submit']);
+						echo('<script>postSuccess("'. $title . '")</script>');
+					}
 				}
 			}
 

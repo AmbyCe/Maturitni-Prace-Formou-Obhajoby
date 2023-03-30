@@ -144,7 +144,7 @@
 										<img src="http://cravatar.eu/avatar/' . $row['author'] . '/24.png" class="rounded-2 me-1"> ' . $row['author'] . '
 									</div>
 									<div class="col-12 col-lg-2 text-center text-lg-end pt-2 pt-lg-0">
-										<a class="btn btn-sm w-75 w-lg-100 text-light buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
+										<a class="btn btn-sm w-75 w-lg-100 text-light buttonC buttonC-1" role="button" href="./pages/viewPm.php?id=' . $row['msgId'] . '">
 											<span style="opacity: 80%;">
 												<small><i class="bi bi-book"></i> Zobrazit zprávu</small>
 											</span>
@@ -206,7 +206,7 @@
 										<img src="http://cravatar.eu/avatar/' . $row['reciever'] . '/24.png" class="rounded-2 me-1"> ' . $row['reciever'] . '
 									</div>
 									<div class="col-12 col-lg-2 text-center text-lg-end pt-2 pt-lg-0">
-										<a class="btn btn-sm w-75 w-lg-100 text-light buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
+										<a class="btn btn-sm w-75 w-lg-100 text-light buttonC buttonC-1" role="button" href="./pages/viewPm.php?id=' . $row['msgId'] . '">
 											<span style="opacity: 80%;">
 												<small><i class="bi bi-book"></i> Zobrazit zprávu</small>
 											</span>
