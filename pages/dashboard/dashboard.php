@@ -95,7 +95,7 @@
 
 	<div class="pt-4 pb-4" style="background-color: #0d1129;">
 		<div class="text-center d-lg-flex flex-lg-row-reverse mb-4">
-			<a href="" class="btn btn-primary buttonC buttonC-2 me-lg-4"><i class="bi bi-pencil"></i> Nová soukromá zpráva</a>
+			<a href="./pages/writePm.php" class="btn btn-primary buttonC buttonC-2 me-lg-4"><i class="bi bi-pencil"></i> Nová soukromá zpráva</a>
 		</div>
 
 		<?php
