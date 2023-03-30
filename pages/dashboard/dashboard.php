@@ -98,55 +98,119 @@
 	</div>
 
 	<div class="pt-4 pb-4" style="background-color: #0d1129;">
+		<!-- Napsat novou zprávu -->
 		<div class="text-center d-lg-flex flex-lg-row-reverse mb-4">
 			<a href="./pages/writePm.php" class="btn btn-primary buttonC buttonC-2 me-lg-4"><i class="bi bi-pencil"></i> Nová soukromá zpráva</a>
 		</div>
 
-		<?php
-			$userId = $_SESSION['id'];
-			$sql = "SELECT m.msgId as msgId, m.title as title, m.timeCreated as timeCreated, u.username as author, m.msgReaded as msgReaded FROM privatemessages m, users u WHERE u.id = m.fromUser AND m.toUser = '$userId' ORDER BY msgId DESC LIMIT 3";
-			$result = mysqli_query($conn, $sql);
+		<!-- Seznam zpráv -->
+		<div class="ms-4 me-4">
+			<hr>
 
-			if (mysqli_num_rows($result) >= 1) {
-				while ($row = mysqli_fetch_assoc($result)) {
+			<!-- Zprávy zaslané uživatli -->
+			<div class="text-light" style="font-weight: 500;">
+				<span class="fs-5"><i class="bi bi-envelope-at"></i> Tobě zaslané zprávy</span>
+			</div>
 
-					// Zobrazení ikon podle toho, jestli byla zpráva přečtena
-					if ($row['msgReaded'] != NULL) {
-						$readIcon = '<span class="badge text-bg-success"><i class="bi bi-check-circle"></i> Přečteno</span>';
-					} else {
-						$readIcon = '<span class="badge text-bg-danger"><i class="bi bi-x-circle"></i> Nepřečteno</span>';
-					}
+			<?php
+				$userId = $_SESSION['id'];
+				$sql = "SELECT m.msgId as msgId, m.title as title, m.timeCreated as timeCreated, u.username as author, m.msgReaded as msgReaded FROM privatemessages m, users u WHERE u.id = m.fromUser AND m.toUser = '$userId' ORDER BY msgId DESC LIMIT 3";
+				$result = mysqli_query($conn, $sql);
 
-					echo('
-					<div class="row mt-2 mt-lg-1 ms-4 me-4">
-						<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
-							<div class="row pt-2 pb-2">
-								<div class="col-12 col-lg-2 text-center text-lg-start text-truncate">
-									' . $readIcon . '
-								</div>
-								<div class="col-12 col-lg-2 text-center text-lg-start text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
-									<em>' . $row['timeCreated'] . '</em>
-								</div>
-								<div class="col-12 col-lg-4 text-center text-lg-start text-truncate pt-2 pt-lg-0">
-									' . $row['title'] . '
-								</div>
-								<div class="col-12 col-lg-2 text-center text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
-									<img src="http://cravatar.eu/avatar/' . $row['author'] . '/24.png" class="rounded-2 me-1"> ' . $row['author'] . '
-								</div>
-								<div class="col-12 col-lg-2 text-center text-lg-end pt-2 pt-lg-0">
-									<a class="btn btn-sm w-75 w-lg-100 text-light buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
-										<span style="opacity: 80%;">
-											<small><i class="bi bi-book"></i> Zobrazit zprávu</small>
-										</span>
-									</a>
+				if (mysqli_num_rows($result) >= 1) {
+					while ($row = mysqli_fetch_assoc($result)) {
+
+						// Zobrazení ikon podle toho, jestli byla zpráva přečtena
+						if ($row['msgReaded'] != NULL) {
+							$readIcon = '<span class="badge text-bg-success"><i class="bi bi-check-circle"></i> Přečteno</span>';
+						} else {
+							$readIcon = '<span class="badge text-bg-danger"><i class="bi bi-x-circle"></i> Nepřečteno</span>';
+						}
+
+						echo('
+						<div class="row mt-2 mt-lg-1">
+							<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
+								<div class="row pt-2 pb-2">
+									<div class="col-12 col-lg-2 text-center text-lg-start text-truncate">
+										' . $readIcon . '
+									</div>
+									<div class="col-12 col-lg-2 text-center text-lg-start text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
+										<em>' . $row['timeCreated'] . '</em>
+									</div>
+									<div class="col-12 col-lg-4 text-center text-lg-start text-truncate pt-2 pt-lg-0">
+										' . $row['title'] . '
+									</div>
+									<div class="col-12 col-lg-2 text-center text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
+										<img src="http://cravatar.eu/avatar/' . $row['author'] . '/24.png" class="rounded-2 me-1"> ' . $row['author'] . '
+									</div>
+									<div class="col-12 col-lg-2 text-center text-lg-end pt-2 pt-lg-0">
+										<a class="btn btn-sm w-75 w-lg-100 text-light buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
+											<span style="opacity: 80%;">
+												<small><i class="bi bi-book"></i> Zobrazit zprávu</small>
+											</span>
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					');
+						');
+					}
 				}
-			}
-		?>
+			?>
+
+			<hr>
+
+			<!-- Zprávy vytvořené uživatelem -->
+			<div class="text-light" style="font-weight: 500;">
+				<span class="fs-5"><i class="bi bi-envelope-open"></i> Tebou vytvořené zprávy</span>
+			</div>
+
+			<?php
+				$userId = $_SESSION['id'];
+				$sql = "SELECT m.msgId as msgId, m.title as title, m.timeCreated as timeCreated, u.username as reciever, m.msgReaded as msgReaded FROM privatemessages m, users u WHERE u.id = m.toUser AND m.fromUser = '$userId' ORDER BY msgId DESC LIMIT 3";
+				$result = mysqli_query($conn, $sql);
+
+				if (mysqli_num_rows($result) >= 1) {
+					while ($row = mysqli_fetch_assoc($result)) {
+
+						// Zobrazení ikon podle toho, jestli byla zpráva přečtena
+						if ($row['msgReaded'] != NULL) {
+							$readIcon = '<span class="badge text-bg-success"><i class="bi bi-check-circle"></i> Přečteno</span>';
+						} else {
+							$readIcon = '<span class="badge text-bg-danger"><i class="bi bi-x-circle"></i> Nepřečteno</span>';
+						}
+
+						echo('
+						<div class="row mt-2 mt-lg-1">
+							<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
+								<div class="row pt-2 pb-2">
+									<div class="col-12 col-lg-2 text-center text-lg-start text-truncate">
+										' . $readIcon . '
+									</div>
+									<div class="col-12 col-lg-2 text-center text-lg-start text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
+										<em>' . $row['timeCreated'] . '</em>
+									</div>
+									<div class="col-12 col-lg-4 text-center text-lg-start text-truncate pt-2 pt-lg-0">
+										' . $row['title'] . '
+									</div>
+									<div class="col-12 col-lg-2 text-center text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
+										<img src="http://cravatar.eu/avatar/' . $row['reciever'] . '/24.png" class="rounded-2 me-1"> ' . $row['reciever'] . '
+									</div>
+									<div class="col-12 col-lg-2 text-center text-lg-end pt-2 pt-lg-0">
+										<a class="btn btn-sm w-75 w-lg-100 text-light buttonC buttonC-1" role="button" href="./pages/dashboard/dashboard.php">
+											<span style="opacity: 80%;">
+												<small><i class="bi bi-book"></i> Zobrazit zprávu</small>
+											</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						');
+					}
+				}
+			?>
+		</div>
 
 		<div class="row ps-4 pe-4">
 			<div class="col-2">
