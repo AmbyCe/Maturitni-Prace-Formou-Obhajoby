@@ -72,6 +72,9 @@
 		</div>
 	</div>
 
+	<?php
+		if ($_SESSION['permissions'] > 4) {
+			echo('
 	<hr>
 
 	<!-- Administrace -->
@@ -98,6 +101,9 @@
 			</div>
 		</div>
 	</div>
+			');
+		}
+	?>
 
 	<hr>
 
