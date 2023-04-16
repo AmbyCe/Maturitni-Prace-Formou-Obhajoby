@@ -94,7 +94,7 @@
 				<a href="./pages/administerArticles.php" class="btn btn-primary buttonC buttonC-4"><i class="bi bi-pencil-square"></i> Správa článků</a>
 			</div>
 			<div class="col-6">
-				<a href="./pages/administerArticles.php" class="btn btn-primary buttonC buttonC-4"><i class="bi bi-pencil-square"></i> Správa wiki</a>
+				<a href="./pages/administerWiki.php" class="btn btn-primary buttonC buttonC-4"><i class="bi bi-pencil-square"></i> Správa wiki</a>
 			</div>
 		</div>
 	</div>
