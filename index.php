@@ -16,7 +16,7 @@
 </head>
 
 <noscript>
-	<h1 class="text-center">Nemáš povolený JavaScript na našich stránkách - stránky nebudou fungovat, tak jak by měly.<br />Povol jej a vše bude fungovat tak, jak má ;) <a href="https://www.enable-javascript.com/">www.enable-javascript.com</a></h1>
+	<h1 class="text-center text-light">Nemáš povolený JavaScript na našich stránkách - stránky nebudou fungovat, tak jak by měly.<br />Povol jej a vše bude fungovat tak, jak má ;) <a href="https://www.enable-javascript.com/">www.enable-javascript.com</a></h1>
 </noscript>
 
 <body class="customBody" style="font-family: 'Roboto', sans-serif;">

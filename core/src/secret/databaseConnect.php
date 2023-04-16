@@ -7,8 +7,8 @@
 
 
 	// Database connect
-	$db_host= "localhost";
-	$db_user= "panel";
+	$db_host = "localhost";
+	$db_user = "panel";
 	$db_password = "M-Wu-)7M@aaCXZHF";
 	$db_name = "userpanel";
 

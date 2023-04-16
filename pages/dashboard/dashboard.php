@@ -92,6 +92,102 @@
 
 	<hr>
 
+	<!-- Reporty -->
+	<div class="text-light" style="font-weight: 500;">
+		<span class="fs-3"><i class="bi bi-flag"></i> Reporty</span>
+	</div>
+
+	<div class="pt-4 pb-4" style="background-color: #0d1129;">
+		<?php
+			if ($_SESSION['permissions'] < 4) {
+				echo('
+				<!-- Napsat nový report -->
+				<div class="text-center d-lg-flex flex-lg-row-reverse mb-4">
+					<a href="./pages/writeReport.php" class="btn btn-primary buttonC buttonC-2 me-lg-4"><i class="bi bi-pencil"></i> Nový report</a>
+				</div>
+
+				<!-- Seznam reportů, které zaslal uživatel -->
+				<div class="ms-4 me-4">
+					<hr>
+				');
+				$userId = $_SESSION['id'];
+				$sql2 = "SELECT r.id as id, u.username as author, r.dateCreated as dateCreated, r.subject as rSubject, r.solved as solved, r.solvedBy as solvedBy FROM reports r, users u WHERE u.id = r.author AND r.author = '$userId' ORDER BY id DESC LIMIT 5";
+			} else {
+				echo('
+				<!-- Seznam reportů zaslaných uživateli -->
+				<div class="ms-4 me-4">
+				');
+				$userId = $_SESSION['id'];
+				$sql2 = "SELECT r.id as id, u.username as author, r.dateCreated as dateCreated, r.subject as rSubject, r.solved as solved, r.solvedBy as solvedBy FROM reports r, users u WHERE u.id = r.author AND r.solved IS NULL ORDER BY id DESC LIMIT 5";
+			}
+		?>
+			<?php
+				$result2 = mysqli_query($conn, $sql2);
+
+				if (mysqli_num_rows($result2) >= 1) {
+					while ($row = mysqli_fetch_assoc($result2)) {
+
+						// Zobrazení ikon podle toho, jestli byl report vyřešen
+						if ($row['solved'] != NULL) {
+							$solveIcon = '<span class="badge text-bg-success"><i class="bi bi-check-circle"></i> Vyřešeno</span>';
+						} else {
+							if ($_SESSION['permissions'] < 4) {
+								$solveIcon = '<span class="badge text-bg-light"><i class="bi bi-headset"></i> V řešení</span>';
+							} else {
+								$solveIcon = '<span class="badge text-bg-danger"><i class="bi bi-headset"></i> Vyžaduje vyřešení</span>';
+							}
+						}
+
+						echo('
+						<div class="row mt-2 mt-lg-1">
+							<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
+								<div class="row pt-2 pb-2">
+									<div class="col-12 col-lg-2 text-center text-lg-start text-truncate">
+										' . $solveIcon . '
+									</div>
+									<div class="col-12 col-lg-2 text-center text-lg-start text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
+										<em>' . $row['dateCreated'] . '</em>
+									</div>
+									<div class="col-12 col-lg-4 text-center text-lg-start text-truncate pt-2 pt-lg-0">
+										' . $row['rSubject'] . '
+									</div>
+									<div class="col-12 col-lg-2 text-center text-muted text-truncate pt-2 pt-lg-0" style="color: #6c757d!important;">
+										<img src="http://cravatar.eu/avatar/' . $row['author'] . '/24.png" class="rounded-2 me-1"> ' . $row['author'] . '
+									</div>
+									<div class="col-12 col-lg-2 text-center text-lg-end pt-2 pt-lg-0">
+										<a class="btn btn-sm w-75 w-lg-100 text-light buttonC buttonC-1" role="button" href="./pages/viewReport.php?id=' . $row['id'] . '">
+											<span style="opacity: 80%;">
+												<small><i class="bi bi-book"></i> Zobrazit report</small>
+											</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						');
+					}
+				} else {
+					echo('
+					<div class="row mt-2 mt-lg-1">
+							<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
+								<div class="pt-2 pb-2 text-center">
+									<i class="bi bi-envelope-x"></i> Nejsou zde žádné reporty..
+								</div>
+							</div>
+					</div>');
+				}
+			?>
+
+			<!-- Zobrazit všechny reporty -->
+			<div class="text-center mt-2">
+				<a href="./pages/viewAllReports.php" class="btn btn-sm btn-primary buttonC buttonC-5 me-lg-4"><i class="bi bi-list-columns-reverse"></i> Zobrazit všechny odeslané reporty</a>
+			</div>
+		</div>
+
+	</div>
+
+	<hr>
+
 	<!-- Soukromé zprávy -->
 	<div class="text-light" style="font-weight: 500;">
 		<span class="fs-3"><i class="bi bi-envelope"></i> Soukromé zprávy</span>
