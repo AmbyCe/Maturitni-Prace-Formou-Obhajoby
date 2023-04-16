@@ -85,7 +85,7 @@
 				<a href="./pages/writeArticle.php" class="btn btn-primary buttonC buttonC-2"><i class="bi bi-pencil"></i> Napsat nový článek</a>
 			</div>
 			<div class="col-6">
-				<a href="./pages/writeArticle.php" class="btn btn-primary buttonC buttonC-2"><i class="bi bi-pencil"></i> Napsat novou stránku wiki</a>
+				<a href="./pages/writeWikiPage.php" class="btn btn-primary buttonC buttonC-2"><i class="bi bi-pencil"></i> Napsat novou stránku wiki</a>
 			</div>
 		</div>
 

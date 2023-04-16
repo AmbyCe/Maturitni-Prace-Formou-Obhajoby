@@ -62,7 +62,7 @@
 						</span>
 					</a>
 
-					<a class="btn btn-lg w-100 text-light buttonC buttonC-6 mt-2" role="button" href="./pages/navody/">
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-6 mt-2" role="button" href="./pages/wiki.php">
 						<span style="opacity: 90%;">
 							Nápověda - wiki
 						</span>
@@ -150,7 +150,7 @@
 					</span>
 				</a>
 
-				<a class="btn btn-lg w-100 text-light buttonC buttonC-6 mt-2" role="button" href="./pages/navody/">
+				<a class="btn btn-lg w-100 text-light buttonC buttonC-6 mt-2" role="button" href="./pages/wiki.php">
 					<span style="opacity: 80%;">
 						<i class="bi bi-body-text d-none d-lg-inline-block"></i> Nápověda - wiki
 					</span>
