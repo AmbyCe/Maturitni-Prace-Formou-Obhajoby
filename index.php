@@ -68,7 +68,7 @@
 						</span>
 					</a>
 
-					<a class="btn btn-lg w-100 text-light buttonC buttonC-3 mt-2" role="button" href="">
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-3 mt-2" role="button" href="./pages/dashboard/pages/writeReport.php">
 						<span style="opacity: 90%;">
 							Nahlásit hráče
 						</span>
@@ -76,13 +76,13 @@
 				</div>
 
 				<div class="col-6">
-					<a class="btn btn-lg w-100 text-light buttonC buttonC-2" role="button" href="">
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-2" role="button" href="./pages/dashboard/pages/writeReport.php">
 						<span style="opacity: 90%;">
 							Žádost o unban
 						</span>
 					</a>
 
-					<a class="btn btn-lg w-100 text-light buttonC buttonC-5 mt-2" role="button" href="">
+					<a class="btn btn-lg w-100 text-light buttonC buttonC-5 mt-2" role="button" href="./pages/dashboard/pages/writeReport.php">
 						<span style="opacity: 90%;">
 							Žádost o práva
 						</span>
@@ -156,23 +156,23 @@
 					</span>
 				</a>
 
-				<button type="button" class="btn btn-lg w-100 text-light buttonC buttonC-3 mt-lg-2">
+				<a class="btn btn-lg w-100 text-light buttonC buttonC-3 mt-2" role="button" href="./pages/dashboard/pages/writeReport.php">
 					<span style="opacity: 80%;">
 						<i class="bi bi-flag d-none d-lg-inline-block"></i> Nahlásit hráče
 					</span>
-				</button>
+				</a>
 
-				<button type="button" class="btn btn-lg w-100 text-light buttonC buttonC-2 mt-2">
+				<a class="btn btn-lg w-100 text-light buttonC buttonC-2 mt-2" role="button" href="./pages/dashboard/pages/writeReport.php">
 					<span style="opacity: 80%;">
 						<i class="bi bi-x-circle d-none d-lg-inline-block"></i> Žádost o unban
 					</span>
-				</button>
+				</a>
 
-				<button type="button" class="btn btn-lg w-100 text-light buttonC buttonC-5 mt-2">
+				<a class="btn btn-lg w-100 text-light buttonC buttonC-5 mt-2" role="button" href="./pages/dashboard/pages/writeReport.php">
 					<span style="opacity: 80%;">
 						<i class="bi bi-person-check d-none d-lg-inline-block"></i> Žádost o práva
 					</span>
-				</button>
+				</a>
 
 				<button type="button" class="btn btn-lg w-100 text-light buttonC buttonC-4 mt-2">
 					<span style="opacity: 80%;">

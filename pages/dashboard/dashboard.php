@@ -81,11 +81,20 @@
 
 	<div class="text-center pt-4 pb-4" style="background-color: #0d1129;">
 		<div class="row">
-			<div class="col-12 col-lg-6">
+			<div class="col-6">
 				<a href="./pages/writeArticle.php" class="btn btn-primary buttonC buttonC-2"><i class="bi bi-pencil"></i> Napsat nový článek</a>
 			</div>
-			<div class="col-12 col-lg-6">
+			<div class="col-6">
+				<a href="./pages/writeArticle.php" class="btn btn-primary buttonC buttonC-2"><i class="bi bi-pencil"></i> Napsat novou stránku wiki</a>
+			</div>
+		</div>
+
+		<div class="row mt-2">
+			<div class="col-6">
 				<a href="./pages/administerArticles.php" class="btn btn-primary buttonC buttonC-4"><i class="bi bi-pencil-square"></i> Správa článků</a>
+			</div>
+			<div class="col-6">
+				<a href="./pages/administerArticles.php" class="btn btn-primary buttonC buttonC-4"><i class="bi bi-pencil-square"></i> Správa wiki</a>
 			</div>
 		</div>
 	</div>
@@ -138,6 +147,7 @@
 							}
 						}
 
+						// Vykreslení reportů
 						echo('
 						<div class="row mt-2 mt-lg-1">
 							<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
@@ -167,11 +177,19 @@
 						');
 					}
 				} else {
+					// Zpráva, pokud nejsou žádné reporty k dispozici
+					if ($_SESSION['permissions'] < 4) {
+						$noReportMsg = 'Neodeslal jsi zatím žádný report...';
+					} else {
+						$noReportMsg = 'Nejsou zde žádné nevyřešené reporty...';
+					}
+
+					// Vykreslení zprávy
 					echo('
 					<div class="row mt-2 mt-lg-1">
 							<div class="card" style="background: linear-gradient(#141e30, #243b55); border: 0; color: white;">
 								<div class="pt-2 pb-2 text-center">
-									<i class="bi bi-envelope-x"></i> Nejsou zde žádné reporty..
+									<i class="bi bi-envelope-x"></i> ' . $noReportMsg . '
 								</div>
 							</div>
 					</div>');
